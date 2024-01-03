@@ -4,7 +4,7 @@ A simple example of a sending email project using ASP.NET Core and Mailjet
 
 <div align="center">
   <kbd>
-    <img src="wwwroot/dotnet-mailjet-emailer.jpg"  style="width:100%;"/>
+    <img src="MailjetEmailer/wwwroot/dotnet-mailjet-emailer.jpg"  style="width:100%;"/>
   </kbd>
 </div>
 
