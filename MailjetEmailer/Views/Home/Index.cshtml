@@ -1,0 +1,50 @@
+﻿@model EmailModel
+
+@{
+    ViewData["Title"] = "Mailjet Emailer";
+}
+
+<div class="row mb-2">
+    <h4>MailJet Emailer</h4>
+    <div class="col-12">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>@TempData["Success"]</strong>
+            </div>
+        }
+    </div>
+    <form asp-action="send-email" asp-controller="home" class="mb-4 g-3 needs-validation" novalidate autocomplete="off" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All"></div>
+
+        <div class="mb-3 mt-3">
+            <label asp-for="Subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" asp-for="Subject" placeholder="Provide subject" value="Sample Subject" required>
+            <div class="invalid-feedback">
+                Please provide a subject
+            </div>
+        </div>        
+        <div class="mb-3 mt-3">
+            <label asp-for="ToEmail" class="form-label">Email:</label>
+            <input type="email" class="form-control" asp-for="ToEmail" placeholder="Enter email" value="abdoulie.s.kassama@gmail.com" required>
+            <div class="invalid-feedback">
+                Please provide email
+            </div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label asp-for="Body" class="form-label">Message:</label>
+            <textarea class="form-control" asp-for="Body" placeholder="Message" required></textarea><div class="invalid-feedback">
+                Please provide message
+            </div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label asp-for="From" class="form-label">From:</label>
+            <input type="email" class="form-control" asp-for="From" placeholder="From email" value="@ViewBag.MailjetEmail" required readonly>
+            <div class="invalid-feedback">
+                Please provide email.Must be Mailjet email
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Send &#x2709;</button>
+    </form>
+</div>
